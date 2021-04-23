@@ -23,6 +23,11 @@ spec:
             - name: html
               mountPath: /usr/share/nginx/html
               readOnly: true
+          livenessProbe: &probe
+            httpGet:
+              path: /
+              port: http
+          readinessProbe: *probe
       volumes:
       - name: html
         configMap:
