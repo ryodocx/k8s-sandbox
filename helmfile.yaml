@@ -1,0 +1,11 @@
+repositories:
+- name: sandbox
+  url: https://ryodocx.github.io/k8s-sandbox
+- name: pipecd
+  url: https://charts.pipecd.dev
+
+releases:
+- name: pipecd
+  namesace: pipecd
+  chart: pipecd/piped
+  version: v0.9.11
