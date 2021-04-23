@@ -8,4 +8,4 @@ spec:
       port: 80
       targetPort: http
       protocol: TCP
-  selector: {{- include "simple-deployment.selectorLabels" . | nindent 4 }}
+  selector: {{- include "selectorLabels" . | nindent 4 }}
