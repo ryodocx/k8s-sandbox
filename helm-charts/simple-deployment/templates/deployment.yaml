@@ -27,8 +27,11 @@ spec:
             httpGet:
               path: /
               port: http
-            initialDelaySeconds: 2
           readinessProbe: *probe
+          lifecycle:
+            preStop:
+              exec:
+                command: ["sleep", "3s"]
       volumes:
       - name: html
         configMap:

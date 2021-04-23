@@ -1,5 +1,8 @@
 import http from "k6/http";
 
 export default function () {
-  http.get(__ENV.TAEGETURL);
+  var resp = http.get(__ENV.TAEGETURL);
+  if (resp.status != 200) {
+    console.log(resp.status);
+  }
 }
