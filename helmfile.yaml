@@ -1,11 +1,24 @@
 repositories:
 - name: sandbox
   url: https://ryodocx.github.io/k8s-sandbox
+- name: bitnami
+  url: https://charts.bitnami.com/bitnami
 - name: pipecd
   url: https://charts.pipecd.dev
 
+environments:
+  default: {}
+
+templates:
+  default: &default
+    values:
+      - helmfile-cofig/values/{{`{{ .Release.Name }}`}}/{{`{{ .Environment.Name }}`}}.yaml
+    secrets:
+      - helmfile-cofig/secrets/{{`{{ .Release.Name }}`}}/{{`{{ .Environment.Name }}`}}.yaml
+
 releases:
-- name: pipecd
-  namesace: pipecd
-  chart: pipecd/piped
+- name: pipecd-control-plane
+  namespace: pipecd
+  chart: pipecd/pipecd
   version: v0.9.11
+  <<: *default
