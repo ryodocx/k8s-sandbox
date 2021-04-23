@@ -5,4 +5,4 @@ image:
 ingress:
   host: example.com
 body: |-
-  hello
+  version 1
