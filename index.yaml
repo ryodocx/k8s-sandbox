@@ -1,0 +1,12 @@
+apiVersion: v1
+entries:
+  simple-deployment:
+  - apiVersion: v2
+    created: "2021-04-23T18:53:30.904004521Z"
+    digest: fc68403ec361a3448fab44c865ded16f4f28a188acd924996c37b47bfbd6778d
+    name: simple-deployment
+    type: application
+    urls:
+    - https://github.com/ryodocx/k8s-sandbox/releases/download/simple-deployment-0.1.1/simple-deployment-0.1.1.tgz
+    version: 0.1.1
+generated: "2021-04-23T18:53:30.904009021Z"
