@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "simple-deployment.fullname" . }}
+  name: {{ include "fullname" . }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
@@ -9,6 +9,8 @@ spec:
   template:
     metadata:
       labels: {{- include "simple-deployment.selectorLabels" . | nindent 8 }}
+    annotations:
+      checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
     spec:
       containers:
         - name: {{ .Chart.Name }}
@@ -17,3 +19,7 @@ spec:
             - name: http
               containerPort: 80
               protocol: TCP
+      volumes:
+      - name: html
+        configMap:
+          name: {{ include "fullname" . }}
