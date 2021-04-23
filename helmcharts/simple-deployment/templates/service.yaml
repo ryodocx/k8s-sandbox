@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "simple-deployment.fullname" . }}
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: http
+      protocol: TCP
+  selector: {{- include "simple-deployment.selectorLabels" . | nindent 4 }}
