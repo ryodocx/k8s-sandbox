@@ -27,6 +27,7 @@ spec:
             httpGet:
               path: /
               port: http
+            initialDelaySeconds: 2
           readinessProbe: *probe
       volumes:
       - name: html
