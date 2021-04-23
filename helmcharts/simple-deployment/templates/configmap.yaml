@@ -4,4 +4,4 @@ metadata:
   name: {{ include "fullname" . }}
 data:
   index.html: |-
-    hello
+    {{ .Values.body }}
