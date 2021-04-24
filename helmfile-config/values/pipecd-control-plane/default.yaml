@@ -1,1 +1,3 @@
-quickstart: true
+quickstart: false
+service:
+  type: ClusterIP
