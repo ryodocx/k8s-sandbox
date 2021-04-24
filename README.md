@@ -12,8 +12,8 @@ helmfile 0.138.7
 k6 0.31.1
 ```
 
-## Memo
-### [PipeCD](https://pipecd.dev)
+### Memo
+#### [PipeCD](https://pipecd.dev)
 * 😥設定をUIで実施する部分がある
 * 🔥piped -> control-plainにgRPC接続できていない模様
 
@@ -62,9 +62,9 @@ runtime.main
 	GOROOT/src/runtime/proc.go:225
 ```
 
-### [Spinnaker](https://spinnaker.io)
+#### [Spinnaker](https://spinnaker.io)
 
-### [Argo](https://argoproj.github.io/)
+#### [Argo](https://argoproj.github.io/)
 
 
 ### Usage
