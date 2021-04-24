@@ -28,13 +28,23 @@ releases:
   needs:
     - pipecd/pipecd-mysql
     - pipecd/pipecd-minio
-  installed: false
+
+- name: pipecd-ingress
+  <<: *pipecd
+  chart: sandbox/ingress
+  version: 0.1.0
+  needs:
+    - pipecd/pipecd-control-plane
 
 - name: pipecd-mysql
   <<: *pipecd
   chart: bitnami/mariadb
   version: 9.3.8
+
 - name: pipecd-minio
   <<: *pipecd
   chart: bitnami/minio
   version: 6.7.5
+
+helmDefaults:
+  recreatePods: true
