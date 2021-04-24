@@ -1,0 +1,3 @@
+apiVersion: v2
+name: ingress-tcp-proxy
+version: 0.1.0

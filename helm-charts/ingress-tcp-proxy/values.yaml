@@ -1,0 +1,8 @@
+items:
+  - name: example
+    ingress:
+      host: example.com
+      annotations: {}
+    target:
+      host: 192.168.0.1
+      port: 80

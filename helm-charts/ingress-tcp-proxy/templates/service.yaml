@@ -1,0 +1,14 @@
+{{- range .Values.items }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .name | quote }}}}
+spec:
+  type: ExternalName
+  externalName: {{ .target.host | quote }}
+  ports:
+  - name: web
+    port: {{ .target.port }}
+    protocol: TCP
+{{ end -}}
