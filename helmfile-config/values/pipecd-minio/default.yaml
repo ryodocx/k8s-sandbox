@@ -1,0 +1,9 @@
+image:
+  tag: "2021.4.22"
+defaultBuckets: pipecd
+ingress:
+  enabled: true
+  hostname: pipecd-minio.internal.ryodocx.net
+persistence:
+  enabled: true
+

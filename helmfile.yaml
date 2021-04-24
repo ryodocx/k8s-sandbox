@@ -25,9 +25,16 @@ releases:
   <<: *pipecd
   chart: pipecd/pipecd
   version: v0.9.11
+  needs:
+    - pipecd/pipecd-mysql
+    - pipecd/pipecd-minio
+  installed: false
 
 - name: pipecd-mysql
   <<: *pipecd
   chart: bitnami/mariadb
   version: 9.3.8
-  installed: false
+- name: pipecd-minio
+  <<: *pipecd
+  chart: bitnami/minio
+  version: 6.7.5
