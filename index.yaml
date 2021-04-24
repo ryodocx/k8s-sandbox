@@ -1,5 +1,13 @@
 apiVersion: v1
 entries:
+  ingress:
+  - apiVersion: v2
+    created: "2021-04-24T04:59:56.374378441Z"
+    digest: e491b11f915c9f618799c25383abf5edfca0a4ec5e1de64d1e5a312474ebbf24
+    name: ingress
+    urls:
+    - https://github.com/ryodocx/k8s-sandbox/releases/download/ingress-0.1.0/ingress-0.1.0.tgz
+    version: 0.1.0
   ingress-tcp-proxy:
   - apiVersion: v2
     created: "2021-04-24T04:51:18.981924607Z"
@@ -32,4 +40,4 @@ entries:
     urls:
     - https://github.com/ryodocx/k8s-sandbox/releases/download/simple-deployment-0.1.1/simple-deployment-0.1.1.tgz
     version: 0.1.1
-generated: "2021-04-24T04:51:18.981943507Z"
+generated: "2021-04-24T04:59:56.374486642Z"
