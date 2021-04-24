@@ -1,0 +1,10 @@
+image:
+  tag: "10.3"
+architecture: standalone
+primary:
+  persistence:
+    enabled: true
+secondary:
+  replicaCount: 0
+  persistence:
+    enabled: false

@@ -15,15 +15,21 @@ templates:
       - helmfile-config/values/{{`{{ .Release.Name }}`}}/{{`{{ .Environment.Name }}`}}.yaml
     secrets:
       - helmfile-config/secrets/{{`{{ .Release.Name }}`}}/{{`{{ .Environment.Name }}`}}.yaml
+  pipecd: &pipecd
+    <<: *default
+    namespace: pipecd
 
 releases:
+# PipeCD
 - name: pipecd-control-plane
-  namespace: pipecd
+  <<: *pipecd
   chart: pipecd/pipecd
   version: v0.9.11
-  <<: *default
-- name: mysql
-  namespace: pipecd
-  chart: bitnami/mysql
-  version: 8.5.5
-  <<: *default
+  needs: 
+    - pipecd/pipecd-mysql
+  installed: false
+
+- name: pipecd-mysql
+  <<: *pipecd
+  chart: bitnami/mariadb
+  version: 9.3.8
