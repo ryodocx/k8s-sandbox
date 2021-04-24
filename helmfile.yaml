@@ -47,4 +47,5 @@ releases:
   version: 6.7.5
 
 helmDefaults:
-  recreatePods: true
+  recreatePods: false
+
