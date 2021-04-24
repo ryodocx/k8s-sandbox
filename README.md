@@ -14,7 +14,7 @@ memo
 ```bash
 export K6_OUT=datadog
 export DD_API_KEY=***
-export TAEGETURL=http://example.com
+export TARGETURL=http://example.com
 docker-compose up -d
 k6 run ./k6-scripts/simple.js
 ```
