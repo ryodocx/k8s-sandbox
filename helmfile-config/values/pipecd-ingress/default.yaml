@@ -11,5 +11,5 @@ items:
       host: pipecd-ops.internal.ryodocx.net
       annotations: {}
     target:
-      serviceName: pipecd-ops
+      serviceName: pipecd-control-plane-ops
       port: 9082
