@@ -12,15 +12,15 @@ environments:
 templates:
   default: &default
     values:
-      - helmfile-config/values/{{`{{ .Release.Name }}`}}/{{`{{ .Environment.Name }}`}}.yaml
+      - helmfile-config/values/{{`{{ .Release.Name }}`}}-{{`{{ .Environment.Name }}`}}.yaml
     secrets:
-      - helmfile-config/secrets/{{`{{ .Release.Name }}`}}/{{`{{ .Environment.Name }}`}}.yaml
+      - helmfile-config/secrets/{{`{{ .Release.Name }}`}}-{{`{{ .Environment.Name }}`}}.yaml
   pipecd: &pipecd
     <<: *default
     namespace: pipecd
 
 releases:
-# PipeCD
+# PipeCD control-plane
 - name: pipecd-control-plane
   <<: *pipecd
   chart: pipecd/pipecd
@@ -33,6 +33,7 @@ releases:
   <<: *pipecd
   chart: sandbox/ingress
   version: 0.1.0
+  secrets: []
   needs:
     - pipecd/pipecd-control-plane
 
@@ -45,6 +46,14 @@ releases:
   <<: *pipecd
   chart: bitnami/minio
   version: 6.7.5
+
+# PipeCD piped
+- name: pipecd-piped
+  <<: *pipecd
+  chart: pipecd/piped
+  version: v0.9.11
+  needs:
+    - pipecd/pipecd-control-plane
 
 helmDefaults:
   recreatePods: false

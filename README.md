@@ -39,11 +39,22 @@ sops path/to/file
 sops -d -i path/to/file
 
 # secretsの一括暗号化
-ls helmfile-config/secrets/*/* | xargs -n 1 sops -e -i
+ls helmfile-config/secrets/* | xargs -n 1 sops -e -i
 ```
 
 * 関連ファイル
     * `./.gitattributes`
     * `./.sops.yaml`
+    * `./helmfile-config/secrets/*`
 
 #### [Helmfile](https://github.com/roboll/helmfile)
+* デプロイ用
+
+```bash
+# deploy
+helmfile sync
+```
+
+* 関連ファイル
+    * `./helmfile.yaml`
+    * `./helmfile-config/*`

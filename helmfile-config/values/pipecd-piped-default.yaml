@@ -1,0 +1,9 @@
+args:
+  enableDefaultKubernetesCloudProvider: true
+  logEncoding: humanize # or json?
+rbac:
+  scope: cluster # or namespace
+nodeSelector: {}
+tolerations: []
+affinity: {}
+resources: {}
