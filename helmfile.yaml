@@ -18,9 +18,15 @@ templates:
   pipecd: &pipecd
     <<: *default
     namespace: pipecd
+  argo: &argo
+    <<: *default
+    namespace: argo
 
 releases:
-# PipeCD control-plane
+################################################################################
+# PipeCD
+################################################################################
+# Control-plane
 - name: pipecd-control-plane
   <<: *pipecd
   chart: pipecd/pipecd
@@ -47,13 +53,17 @@ releases:
   chart: bitnami/minio
   version: 6.7.5
 
-# PipeCD piped
+# piped
 - name: pipecd-piped
   <<: *pipecd
   chart: pipecd/piped
   version: v0.9.11
   needs:
     - pipecd/pipecd-control-plane
+
+################################################################################
+# Argo
+################################################################################
 
 helmDefaults:
   recreatePods: false

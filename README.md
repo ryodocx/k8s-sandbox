@@ -1,4 +1,73 @@
-memo
+K8sで遊んだメモ
+
+```
+$ kubectl version --short 
+Client Version: v1.20.4
+Server Version: v1.20.4
+
+$ cat .tool-versions 
+kubectl 1.20.4
+helm 3.5.4
+helmfile 0.138.7
+k6 0.31.1
+```
+
+## Memo
+### [PipeCD](https://pipecd.dev)
+* 😥設定をUIで実施する部分がある
+* 🔥piped -> control-plainにgRPC接続できていない模様
+
+@piped
+```
+stopping due to signal	{"signal": "terminated"}
+failed to create api client	{"error": "context canceled"}
+github.com/pipe-cd/pipe/pkg/app/piped/cmd/piped.(*piped).createAPIClient
+	pkg/app/piped/cmd/piped/piped.go:401
+github.com/pipe-cd/pipe/pkg/app/piped/cmd/piped.(*piped).run
+	pkg/app/piped/cmd/piped/piped.go:154
+github.com/pipe-cd/pipe/pkg/cli.runWithContext
+	pkg/cli/cmd.go:90
+github.com/pipe-cd/pipe/pkg/cli.WithContext.func1
+	pkg/cli/cmd.go:47
+github.com/spf13/cobra.(*Command).execute
+	external/com_github_spf13_cobra/command.go:842
+github.com/spf13/cobra.(*Command).ExecuteC
+	external/com_github_spf13_cobra/command.go:950
+github.com/spf13/cobra.(*Command).Execute
+	external/com_github_spf13_cobra/command.go:887
+github.com/pipe-cd/pipe/pkg/cli.(*App).Run
+	pkg/cli/app.go:60
+main.main
+	cmd/piped/main.go:32
+runtime.main
+	GOROOT/src/runtime/proc.go:225
+failed to create gRPC client to control plane	{"error": "context canceled"}
+github.com/pipe-cd/pipe/pkg/app/piped/cmd/piped.(*piped).run
+	pkg/app/piped/cmd/piped/piped.go:156
+github.com/pipe-cd/pipe/pkg/cli.runWithContext
+	pkg/cli/cmd.go:90
+github.com/pipe-cd/pipe/pkg/cli.WithContext.func1
+	pkg/cli/cmd.go:47
+github.com/spf13/cobra.(*Command).execute
+	external/com_github_spf13_cobra/command.go:842
+github.com/spf13/cobra.(*Command).ExecuteC
+	external/com_github_spf13_cobra/command.go:950
+github.com/spf13/cobra.(*Command).Execute
+	external/com_github_spf13_cobra/command.go:887
+github.com/pipe-cd/pipe/pkg/cli.(*App).Run
+	pkg/cli/app.go:60
+main.main
+	cmd/piped/main.go:32
+runtime.main
+	GOROOT/src/runtime/proc.go:225
+```
+
+### [Spinnaker](https://spinnaker.io)
+
+### [Argo](https://argoproj.github.io/)
+
+
+### Usage
 
 #### helm-charts
 * HelmChart群をリポジトリ https://ryodocx.github.io/k8s-sandbox にホスティング
