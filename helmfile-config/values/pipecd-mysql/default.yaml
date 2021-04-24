@@ -7,5 +7,3 @@ primary:
     enabled: true
 secondary:
   replicaCount: 0
-  persistence:
-    enabled: false
