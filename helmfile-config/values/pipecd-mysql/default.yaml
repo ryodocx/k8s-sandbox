@@ -1,6 +1,6 @@
 fullnameOverride: pipecd-mysql
 image:
-  tag: "10.3"
+  tag: "8.0"
 architecture: standalone
 primary:
   persistence:

@@ -38,8 +38,8 @@ releases:
 
 - name: pipecd-mysql
   <<: *pipecd
-  chart: bitnami/mariadb
-  version: 9.3.8
+  chart: bitnami/mysql
+  version: 8.5.5
 
 - name: pipecd-minio
   <<: *pipecd
