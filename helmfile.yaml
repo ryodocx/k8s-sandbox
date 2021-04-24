@@ -48,4 +48,3 @@ releases:
 
 helmDefaults:
   recreatePods: false
-
