@@ -1,0 +1,8 @@
+items:
+  - name: pipecd
+    ingress:
+      host: pipecd.internal.ryodocx.net
+      annotations: {}
+    target:
+      serviceName: pipecd-control-plane
+      port: 8080
