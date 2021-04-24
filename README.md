@@ -113,7 +113,6 @@ ls helmfile-config/secrets/* | xargs -n 1 sops -e -i
 ```
 
 * 関連ファイル
-    * `./.gitattributes`
     * `./.sops.yaml`
     * `./helmfile-config/secrets/*`
 
