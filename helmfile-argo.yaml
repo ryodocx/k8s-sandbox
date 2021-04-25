@@ -23,8 +23,8 @@ releases:
 
 # Argo Rollouts
 - name: argo-rollouts
-  <<: *default
-  namespace: argo-rollouts
-  chart: git::github.com:argoproj/argo-rollouts.git//manifests/install.yaml?ref=v0.10.2
+  # <<: *default
+  namespace: argo-rollouts-test
+  chart: kustomize-files/argo-rollouts
 
 # Argo Events

@@ -6,10 +6,11 @@ Client Version: v1.20.4
 Server Version: v1.20.4
 
 $ cat .tool-versions 
+kustomize 4.1.2
 kubectl 1.20.4
-helm 3.5.4
-helmfile 0.138.7
 k6 0.31.1
+helmfile 0.138.7
+helm 3.5.4
 ```
 
 ### Memo
