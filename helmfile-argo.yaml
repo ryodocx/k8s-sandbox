@@ -13,9 +13,9 @@ templates:
       - helmfile-config/values/{{`{{ .Release.Name }}`}}-{{`{{ .Environment.Name }}`}}.yaml
     secrets:
       - helmfile-config/secrets/{{`{{ .Release.Name }}`}}-{{`{{ .Environment.Name }}`}}.yaml
-  argo: &argo
-    <<: *default
-    namespace: argo
+  argo: &argo-rollouts
+    # <<: *default
+    namespace: argo-rollouts
 
 releases:
 # Argo Workflows
@@ -23,8 +23,39 @@ releases:
 
 # Argo Rollouts
 - name: argo-rollouts
-  # <<: *default
-  namespace: argo-rollouts-test
+  <<: *argo-rollouts
   chart: ./kustomize/argo-rollouts
+
+- name: argo-rollouts-demo
+  <<: *argo-rollouts
+  namespace: argo-rollouts
+  chart: ./kustomize/argo-rollouts-demo
+  needs: 
+    - argo-rollouts/argo-rollouts
+
+- name: pipecd-ingress
+  <<: *argo-rollouts
+  chart: sandbox/ingress
+  version: 0.1.0
+  needs:
+    - argo-rollouts/argo-rollouts-demo
+  values:
+  - items:
+    - name: argo-rollouts-demo
+      ingress:
+        host: argo-rollouts-demo.internal.ryodocx.net
+      target:
+        serviceName: rollouts-demo
+        port: 80
+    - name: argo-rollouts-demo-public
+      ingress:
+        host: argo-rollouts-demo.ryodocx.net
+        annotations:
+          external-dns.alpha.kubernetes.io/target: "public.ryodocx.net"
+          external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
+          kubernetes.io/ingress.class: ""
+      target:
+        serviceName: rollouts-demo
+        port: 80
 
 # Argo Events
