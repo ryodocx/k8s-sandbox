@@ -13,62 +13,11 @@ k6 0.31.1
 ```
 
 ### Memo
-#### [PipeCD](https://pipecd.dev)
-* 😥設定をUIで実施する部分がある
-* 🔥piped -> control-plainにgRPC接続できていない模様
-
-@piped
-```
-stopping due to signal	{"signal": "terminated"}
-failed to create api client	{"error": "context canceled"}
-github.com/pipe-cd/pipe/pkg/app/piped/cmd/piped.(*piped).createAPIClient
-	pkg/app/piped/cmd/piped/piped.go:401
-github.com/pipe-cd/pipe/pkg/app/piped/cmd/piped.(*piped).run
-	pkg/app/piped/cmd/piped/piped.go:154
-github.com/pipe-cd/pipe/pkg/cli.runWithContext
-	pkg/cli/cmd.go:90
-github.com/pipe-cd/pipe/pkg/cli.WithContext.func1
-	pkg/cli/cmd.go:47
-github.com/spf13/cobra.(*Command).execute
-	external/com_github_spf13_cobra/command.go:842
-github.com/spf13/cobra.(*Command).ExecuteC
-	external/com_github_spf13_cobra/command.go:950
-github.com/spf13/cobra.(*Command).Execute
-	external/com_github_spf13_cobra/command.go:887
-github.com/pipe-cd/pipe/pkg/cli.(*App).Run
-	pkg/cli/app.go:60
-main.main
-	cmd/piped/main.go:32
-runtime.main
-	GOROOT/src/runtime/proc.go:225
-failed to create gRPC client to control plane	{"error": "context canceled"}
-github.com/pipe-cd/pipe/pkg/app/piped/cmd/piped.(*piped).run
-	pkg/app/piped/cmd/piped/piped.go:156
-github.com/pipe-cd/pipe/pkg/cli.runWithContext
-	pkg/cli/cmd.go:90
-github.com/pipe-cd/pipe/pkg/cli.WithContext.func1
-	pkg/cli/cmd.go:47
-github.com/spf13/cobra.(*Command).execute
-	external/com_github_spf13_cobra/command.go:842
-github.com/spf13/cobra.(*Command).ExecuteC
-	external/com_github_spf13_cobra/command.go:950
-github.com/spf13/cobra.(*Command).Execute
-	external/com_github_spf13_cobra/command.go:887
-github.com/pipe-cd/pipe/pkg/cli.(*App).Run
-	pkg/cli/app.go:60
-main.main
-	cmd/piped/main.go:32
-runtime.main
-	GOROOT/src/runtime/proc.go:225
-```
-
-#### [Spinnaker](https://spinnaker.io)
-
-#### [Argo](https://argoproj.github.io/)
+* [PipeCD](./docs/pipecd.md)
+* [Argo](./docs/spinnaker.md)
+* [Spinnaker](./docs/argo.md)
 
 ---
-
-### Usage
 
 #### helm-charts
 * HelmChart群をリポジトリ https://ryodocx.github.io/k8s-sandbox にホスティング
@@ -121,14 +70,21 @@ ls helmfile-config/secrets/* | xargs -n 1 sops -e -i
 
 ```bash
 # deploy
-helmfile sync
+helmfile sync -f path/to/helmfile
 ```
 
 * 関連ファイル
-    * `./helmfile.yaml`
+    * `./helmfile-*.yaml`
     * `./helmfile-config/*`
+
 * インテグレーション: https://github.com/roboll/helmfile#integrations
 	* ArgoCD連携
 		* `helmfile template` + ArgoCDで連携できる
 		* 監視等のインフラはhelmfile, アプリはArgoCDの住み分けを想定している模様
 	* HelmChartバージョンの自動更新: https://github.com/renovatebot/renovate
+
+* plain manifestのデプロイ
+	* https://github.com/roboll/helmfile/pull/1172
+
+#### [go-getter](https://github.com/hashicorp/go-getter)
+* helmfile等のURLフォーマットはgo-getterに則る: https://github.com/hashicorp/go-getter#url-format

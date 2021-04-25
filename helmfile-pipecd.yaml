@@ -18,14 +18,8 @@ templates:
   pipecd: &pipecd
     <<: *default
     namespace: pipecd
-  argo: &argo
-    <<: *default
-    namespace: argo
 
 releases:
-################################################################################
-# PipeCD
-################################################################################
 # Control-plane
 - name: pipecd-control-plane
   <<: *pipecd
@@ -60,10 +54,6 @@ releases:
   version: v0.9.11
   needs:
     - pipecd/pipecd-control-plane
-
-################################################################################
-# Argo
-################################################################################
 
 helmDefaults:
   recreatePods: false
