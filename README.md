@@ -96,3 +96,10 @@ helmfile -f path/to/helmfile sync
 * helmfileからplain-manifestを参照する際に使用
 * 関連ファイル
     * `./kustomize/*`
+* ❗ kustomize v4系列ではオプションに互換性がないのでhelmfile 0.138.7と組み合わせる場合はv3が必要
+* ❗ kustomizeから`resources`で呼び出すファイルは、localに存在する必要がある(kusomize互換ディレクトリはgo-getter式のURLで指定可能?)
+
+```bash
+#プラグイン用ディレクトリ作成
+mkdir -p $HOME/.config/kustomize/plugin
+```
