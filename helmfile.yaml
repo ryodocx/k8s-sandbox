@@ -1,0 +1,6 @@
+helmfiles:
+  - path: helmfile-pipecd.yaml
+  - path: helmfile-argo.yaml
+
+helmDefaults:
+  recreatePods: false

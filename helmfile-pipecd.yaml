@@ -54,6 +54,3 @@ releases:
   version: v0.9.11
   needs:
     - pipecd/pipecd-control-plane
-
-helmDefaults:
-  recreatePods: false

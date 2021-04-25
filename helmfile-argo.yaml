@@ -28,6 +28,3 @@ releases:
   chart: git::github.com:argoproj/argo-rollouts.git//manifests/install.yaml?ref=v0.10.2
 
 # Argo Events
-
-helmDefaults:
-  recreatePods: false
