@@ -70,7 +70,7 @@ ls helmfile-config/secrets/* | xargs -n 1 sops -e -i
 
 ```bash
 # deploy
-helmfile sync -f path/to/helmfile
+helmfile -f path/to/helmfile sync
 ```
 
 * 関連ファイル
