@@ -127,3 +127,8 @@ helmfile sync
 * 関連ファイル
     * `./helmfile.yaml`
     * `./helmfile-config/*`
+* インテグレーション: https://github.com/roboll/helmfile#integrations
+	* ArgoCD連携
+		* `helmfile template` + ArgoCDで連携できる
+		* 監視等のインフラはhelmfile, アプリはArgoCDの住み分けを想定している模様
+	* HelmChartバージョンの自動更新: https://github.com/renovatebot/renovate
