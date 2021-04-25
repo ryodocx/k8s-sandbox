@@ -25,6 +25,6 @@ releases:
 - name: argo-rollouts
   # <<: *default
   namespace: argo-rollouts-test
-  chart: kustomize-files/argo-rollouts
+  chart: ./kustomize/argo-rollouts
 
 # Argo Events

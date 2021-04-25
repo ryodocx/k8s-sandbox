@@ -89,3 +89,8 @@ helmfile -f path/to/helmfile sync
 
 #### [go-getter](https://github.com/hashicorp/go-getter)
 * helmfile等のURLフォーマットはgo-getterに則る: https://github.com/hashicorp/go-getter#url-format
+
+#### [kustomize](https://github.com/kubernetes-sigs/kustomize)
+* helmfileからplain-manifestを参照する際に使用
+* 関連ファイル
+    * `./kustomize/*`
