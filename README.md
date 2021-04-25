@@ -6,11 +6,13 @@ Client Version: v1.20.4
 Server Version: v1.20.4
 
 $ cat .tool-versions 
-kustomize 4.1.2
 kubectl 1.20.4
 k6 0.31.1
 helmfile 0.138.7
 helm 3.5.4
+
+$ kustomize version --short
+{kustomize/v3.9.3  2021-02-07T17:02:13Z  }
 ```
 
 ### Memo
