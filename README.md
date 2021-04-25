@@ -16,9 +16,15 @@ $ kustomize version --short
 ```
 
 ### Memo
-* [PipeCD](./docs/pipecd.md)
-* [Argo](./docs/spinnaker.md)
-* [Spinnaker](./docs/argo.md)
+* [PipeCD](./docs/pipecd.md): CD
+* [Argo](./docs/argo.md)
+    * Argo Workflows: CI
+    * Argo CD: CD
+    * Argo Rollouts: Progressive Deployment ※SMI互換
+    * Argo Events: ???
+* [Spinnaker](./docs/spinnaker.md): CD
+* [Flagger](./docs/flagger.md): Progressive Deployment ※SMI互換
+* [Open Service Mesh](https://openservicemesh.io/): ServiceMesh ※SMI互換
 
 ---
 
